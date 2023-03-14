@@ -27,7 +27,10 @@ class BaseTabBarController: UITabBarController {
         appsNavViewController.tabBarItem.title = "Apps"
         appsNavViewController.tabBarItem.image = UIImage(named: "apps")
         appsNavViewController.navigationBar.prefersLargeTitles = true
+        
+        tabBar.tintColor = .yellow
                 
         viewControllers = [appsNavViewController,searchNavViewController]
     }
+    
 }
