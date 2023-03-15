@@ -14,6 +14,7 @@
 		DCB2CDE329C09FDD00E1CE5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB2CDE229C09FDD00E1CE5A /* Assets.xcassets */; };
 		DCB2CDE629C09FDD00E1CE5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCB2CDE429C09FDD00E1CE5A /* LaunchScreen.storyboard */; };
 		DCB2CDF029C0A12600E1CE5A /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2CDEF29C0A12600E1CE5A /* BaseTabBarController.swift */; };
+		DCB6ABB329C1728100B3BF4E /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6ABB229C1728100B3BF4E /* SearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		DCB2CDE529C09FDD00E1CE5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCB2CDE729C09FDD00E1CE5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCB2CDEF29C0A12600E1CE5A /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		DCB6ABB229C1728100B3BF4E /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +60,9 @@
 		DCB2CDD829C09FDB00E1CE5A /* NewAppStore */ = {
 			isa = PBXGroup;
 			children = (
+				DCB6ABB129C171F600B3BF4E /* Controllers */,
 				DCB2CDD929C09FDB00E1CE5A /* AppDelegate.swift */,
 				DCB2CDDB29C09FDB00E1CE5A /* SceneDelegate.swift */,
-				DCB2CDEF29C0A12600E1CE5A /* BaseTabBarController.swift */,
 				DCB2CDDD29C09FDB00E1CE5A /* ViewController.swift */,
 				DCB2CDDF29C09FDB00E1CE5A /* Main.storyboard */,
 				DCB2CDE229C09FDD00E1CE5A /* Assets.xcassets */,
@@ -68,6 +70,15 @@
 				DCB2CDE729C09FDD00E1CE5A /* Info.plist */,
 			);
 			path = NewAppStore;
+			sourceTree = "<group>";
+		};
+		DCB6ABB129C171F600B3BF4E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DCB2CDEF29C0A12600E1CE5A /* BaseTabBarController.swift */,
+				DCB6ABB229C1728100B3BF4E /* SearchController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCB2CDF029C0A12600E1CE5A /* BaseTabBarController.swift in Sources */,
+				DCB6ABB329C1728100B3BF4E /* SearchController.swift in Sources */,
 				DCB2CDDE29C09FDB00E1CE5A /* ViewController.swift in Sources */,
 				DCB2CDDA29C09FDB00E1CE5A /* AppDelegate.swift in Sources */,
 				DCB2CDDC29C09FDB00E1CE5A /* SceneDelegate.swift in Sources */,
