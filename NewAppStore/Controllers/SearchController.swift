@@ -16,10 +16,32 @@ class SearchController: UICollectionViewController, UICollectionViewDelegateFlow
         
         collectionView.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
+        fetchItunesApps()
+    }
+    
+    fileprivate func fetchItunesApps() {
+        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
+        guard let url = URL(string: urlString) else {return}
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            if let error = error {
+                print("failed to fetch Itunes Apps", error)
+            }
+            guard let data = data else {return}
+            
+            do {
+                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
+                
+            } catch {
+                print("failed to decode json", error)
+            }
+
+        }.resume()
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? SearchResultCollectionViewCell else {return UICollectionViewCell()}
         return cell
     }
     
