@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DC22415F29C17B2200A43A22 /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC22415E29C17B2200A43A22 /* SearchResultCollectionViewCell.swift */; };
+		DC48A7CB29C2C0E6006711D3 /* UiVIew+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48A7CA29C2C0E6006711D3 /* UiVIew+Layout.swift */; };
 		DCB2CDDA29C09FDB00E1CE5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2CDD929C09FDB00E1CE5A /* AppDelegate.swift */; };
 		DCB2CDDC29C09FDB00E1CE5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2CDDB29C09FDB00E1CE5A /* SceneDelegate.swift */; };
 		DCB2CDDE29C09FDB00E1CE5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2CDDD29C09FDB00E1CE5A /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		DC22415E29C17B2200A43A22 /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC48A7CA29C2C0E6006711D3 /* UiVIew+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UiVIew+Layout.swift"; path = "../../../../UiVIew+Layout.swift"; sourceTree = "<group>"; };
 		DCB2CDD629C09FDB00E1CE5A /* NewAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB2CDD929C09FDB00E1CE5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCB2CDDB29C09FDB00E1CE5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		DC48A7C929C2C0B4006711D3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DC48A7CA29C2C0E6006711D3 /* UiVIew+Layout.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		DCB2CDCD29C09FDB00E1CE5A = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 		DCB2CDD829C09FDB00E1CE5A /* NewAppStore */ = {
 			isa = PBXGroup;
 			children = (
+				DC48A7C929C2C0B4006711D3 /* Helpers */,
 				DC22415D29C17AED00A43A22 /* Views */,
 				DCB6ABB129C171F600B3BF4E /* Controllers */,
 				DCB2CDD929C09FDB00E1CE5A /* AppDelegate.swift */,
@@ -166,6 +177,7 @@
 				DCB2CDF029C0A12600E1CE5A /* BaseTabBarController.swift in Sources */,
 				DC22415F29C17B2200A43A22 /* SearchResultCollectionViewCell.swift in Sources */,
 				DCB6ABB329C1728100B3BF4E /* SearchController.swift in Sources */,
+				DC48A7CB29C2C0E6006711D3 /* UiVIew+Layout.swift in Sources */,
 				DCB2CDDE29C09FDB00E1CE5A /* ViewController.swift in Sources */,
 				DCB2CDDA29C09FDB00E1CE5A /* AppDelegate.swift in Sources */,
 				DCB2CDDC29C09FDB00E1CE5A /* SceneDelegate.swift in Sources */,

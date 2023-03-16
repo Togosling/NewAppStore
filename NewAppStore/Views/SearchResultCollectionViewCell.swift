@@ -20,13 +20,13 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Apps Name"
+        label.text = "App Name"
         return label
     }()
     
     let categoryLabel: UILabel = {
         let label = UILabel()
-        label.text = "Photo&Video"
+        label.text = "Photos & Video"
         return label
     }()
     
@@ -39,12 +39,25 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     let getButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("GET", for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         button.setTitleColor(.blue, for: .normal)
         button.backgroundColor = UIColor(white: 0.95, alpha: 1)
-        button.widthAnchor.constraint(equalToConstant: 64).isActive = true
-        button.layer.cornerRadius = 12
+        button.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        button.layer.cornerRadius = 14
         return button
     }()
+    
+    lazy var screenShot1 = self.createScreenShotImageView()
+    lazy var screenShot2 = self.createScreenShotImageView()
+    lazy var screenShot3 = self.createScreenShotImageView()
+
+    
+    func createScreenShotImageView() -> UIImageView {
+        let screenShotImageView = UIImageView()
+        screenShotImageView.backgroundColor = .blue
+        return screenShotImageView
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -52,17 +65,21 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         let labelStackView = UIStackView(arrangedSubviews: [nameLabel,categoryLabel,ratingLabel])
         labelStackView.axis = .vertical
         
-        let stackView = UIStackView(arrangedSubviews: [imageView, labelStackView, getButton])
-        stackView.spacing = 12
-        stackView.alignment = .center
+        let topStackView = UIStackView(arrangedSubviews: [imageView, labelStackView, getButton])
+        topStackView.spacing = 12
+        topStackView.alignment = .center
         
-        addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        let screenShotStackView = UIStackView(arrangedSubviews: [screenShot1,screenShot2,screenShot3])
+        screenShotStackView.spacing = 12
+        screenShotStackView.distribution = .fillEqually
         
+        let overallStackView = UIStackView(arrangedSubviews: [topStackView, screenShotStackView])
+        overallStackView.axis = .vertical
+        overallStackView.spacing = 16
+        
+        addSubview(overallStackView)
+        overallStackView.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
+      
     }
     
     required init?(coder: NSCoder) {
