@@ -6,33 +6,47 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchResultCollectionViewCell: UICollectionViewCell {
     
-    let imageView: UIImageView = {
+    var appResult : Result! {
+        didSet {
+            nameLabel.text = appResult.trackName
+            categoryLabel.text = appResult.primaryGenreName
+            ratingLabel.text = "Rating:\(Int(appResult.averageUserRating ?? 0))"
+            iconImageView.sd_setImage(with: URL(string: appResult.artworkUrl100))
+            screenShot1.sd_setImage(with: URL(string: appResult.screenshotUrls[0]))
+            if appResult.screenshotUrls.count > 1 {
+                screenShot2.sd_setImage(with: URL(string: appResult.screenshotUrls[1]))
+            }
+            if appResult.screenshotUrls.count > 2 {
+            screenShot3.sd_setImage(with: URL(string: appResult.screenshotUrls[2]))
+            }
+        }
+    }
+    
+    let iconImageView: UIImageView = {
         let iv = UIImageView()
-        iv.backgroundColor = .red
         iv.widthAnchor.constraint(equalToConstant: 64).isActive = true
         iv.heightAnchor.constraint(equalToConstant: 64).isActive = true
         iv.layer.cornerRadius = 12
+        iv.clipsToBounds = true
         return iv
     }()
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "App Name"
         return label
     }()
     
     let categoryLabel: UILabel = {
         let label = UILabel()
-        label.text = "Photos & Video"
         return label
     }()
     
     let ratingLabel: UILabel = {
         let label = UILabel()
-        label.text = "9.2M"
         return label
     }()
     
@@ -44,7 +58,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         button.backgroundColor = UIColor(white: 0.95, alpha: 1)
         button.widthAnchor.constraint(equalToConstant: 80).isActive = true
         button.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        button.layer.cornerRadius = 14
+        button.layer.cornerRadius = 12
         return button
     }()
     
@@ -55,7 +69,11 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     
     func createScreenShotImageView() -> UIImageView {
         let screenShotImageView = UIImageView()
-        screenShotImageView.backgroundColor = .blue
+        screenShotImageView.layer.cornerRadius = 12
+        screenShotImageView.clipsToBounds = true
+        screenShotImageView.layer.borderWidth = 0.5
+        screenShotImageView.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
+        screenShotImageView.contentMode = .scaleAspectFill
         return screenShotImageView
     }
     
@@ -65,7 +83,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         let labelStackView = UIStackView(arrangedSubviews: [nameLabel,categoryLabel,ratingLabel])
         labelStackView.axis = .vertical
         
-        let topStackView = UIStackView(arrangedSubviews: [imageView, labelStackView, getButton])
+        let topStackView = UIStackView(arrangedSubviews: [iconImageView, labelStackView, getButton])
         topStackView.spacing = 12
         topStackView.alignment = .center
         

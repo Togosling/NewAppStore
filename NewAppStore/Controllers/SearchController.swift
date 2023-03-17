@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -32,10 +33,7 @@ class SearchController: UICollectionViewController, UICollectionViewDelegateFlow
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? SearchResultCollectionViewCell else {return UICollectionViewCell()}
-        let appSearchResult = appSearchResults[indexPath.item]
-        cell.nameLabel.text = appSearchResult.trackName
-        cell.categoryLabel.text = appSearchResult.primaryGenreName
-        cell.ratingLabel.text = "Rating:\(Int(appSearchResult.averageUserRating ?? 0))"
+        cell.appResult = appSearchResults[indexPath.item]
         return cell
     }
     
