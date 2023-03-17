@@ -10,6 +10,7 @@ import UIKit
 class SearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     fileprivate let cellId = "id"
+    var appSearchResults = [Result]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,33 +21,26 @@ class SearchController: UICollectionViewController, UICollectionViewDelegateFlow
     }
     
     fileprivate func fetchItunesApps() {
-        let urlString = "https://itunes.apple.com/search?term=instagram&entity=software"
-        guard let url = URL(string: urlString) else {return}
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            if let error = error {
-                print("failed to fetch Itunes Apps", error)
+        Service.shared.fetchApps { result in
+            self.appSearchResults = result
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
             }
-            guard let data = data else {return}
-            
-            do {
-                let searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
-                
-            } catch {
-                print("failed to decode json", error)
-            }
+        }
 
-        }.resume()
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? SearchResultCollectionViewCell else {return UICollectionViewCell()}
+        let appSearchResult = appSearchResults[indexPath.item]
+        cell.nameLabel.text = appSearchResult.trackName
+        cell.categoryLabel.text = appSearchResult.primaryGenreName
+        cell.ratingLabel.text = "Rating:\(Int(appSearchResult.averageUserRating ?? 0))"
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return appSearchResults.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -18,6 +18,7 @@
 		DCB2CDE629C09FDD00E1CE5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCB2CDE429C09FDD00E1CE5A /* LaunchScreen.storyboard */; };
 		DCB2CDF029C0A12600E1CE5A /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2CDEF29C0A12600E1CE5A /* BaseTabBarController.swift */; };
 		DCB6ABB329C1728100B3BF4E /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6ABB229C1728100B3BF4E /* SearchController.swift */; };
+		DCBB2E0229C4B52900D33528 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBB2E0129C4B52900D33528 /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		DCB2CDE729C09FDD00E1CE5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCB2CDEF29C0A12600E1CE5A /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		DCB6ABB229C1728100B3BF4E /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		DCBB2E0129C4B52900D33528 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		DCB2CDD829C09FDB00E1CE5A /* NewAppStore */ = {
 			isa = PBXGroup;
 			children = (
+				DCBB2E0029C4B51C00D33528 /* Service */,
 				DC48A7CC29C2CA34006711D3 /* Model */,
 				DC48A7C929C2C0B4006711D3 /* Helpers */,
 				DC22415D29C17AED00A43A22 /* Views */,
@@ -108,10 +111,18 @@
 		DCB6ABB129C171F600B3BF4E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DCB2CDEF29C0A12600E1CE5A /* BaseTabBarController.swift */,
 				DCB6ABB229C1728100B3BF4E /* SearchController.swift */,
+				DCB2CDEF29C0A12600E1CE5A /* BaseTabBarController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DCBB2E0029C4B51C00D33528 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DCBB2E0129C4B52900D33528 /* Service.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +201,7 @@
 				DC22415F29C17B2200A43A22 /* SearchResultCollectionViewCell.swift in Sources */,
 				DC48A7CE29C2CA4F006711D3 /* SearchResult.swift in Sources */,
 				DCB6ABB329C1728100B3BF4E /* SearchController.swift in Sources */,
+				DCBB2E0229C4B52900D33528 /* Service.swift in Sources */,
 				DCB2CDDE29C09FDB00E1CE5A /* ViewController.swift in Sources */,
 				DCB2CDDA29C09FDB00E1CE5A /* AppDelegate.swift in Sources */,
 				DCB2CDDC29C09FDB00E1CE5A /* SceneDelegate.swift in Sources */,
