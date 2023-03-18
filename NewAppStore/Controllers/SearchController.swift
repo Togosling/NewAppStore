@@ -8,27 +8,39 @@
 import UIKit
 import SDWebImage
 
-class SearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SearchController: UICollectionViewController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     fileprivate let cellId = "id"
     var appSearchResults = [Result]()
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
-        fetchItunesApps()
+        setupSearchBar()
+        
     }
     
-    fileprivate func fetchItunesApps() {
-        Service.shared.fetchApps { result in
-            self.appSearchResults = result
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
+    fileprivate func setupSearchBar() {
+        definesPresentationContext = true
+        navigationItem.searchController = self.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+            Service.shared.fetchApps(searchItem: searchText) { result in
+                self.appSearchResults = result
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
-        }
-
+        })
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
