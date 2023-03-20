@@ -23,6 +23,7 @@
 		DCC3DAA729C5910E009913E0 /* AppsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC3DAA629C5910E009913E0 /* AppsController.swift */; };
 		DCC3DAAA29C591FE009913E0 /* AppsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC3DAA929C591FE009913E0 /* AppsCollectionViewCell.swift */; };
 		DCC3DAAD29C59405009913E0 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC3DAAC29C59405009913E0 /* AppsHorizontalController.swift */; };
+		DCFC098E29C8335200CC2082 /* AppRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC098D29C8335200CC2082 /* AppRowCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		DCC3DAA629C5910E009913E0 /* AppsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsController.swift; sourceTree = "<group>"; };
 		DCC3DAA929C591FE009913E0 /* AppsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCollectionViewCell.swift; sourceTree = "<group>"; };
 		DCC3DAAC29C59405009913E0 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
+		DCFC098D29C8335200CC2082 /* AppRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRowCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				DCC3DAA929C591FE009913E0 /* AppsCollectionViewCell.swift */,
+				DCFC098D29C8335200CC2082 /* AppRowCell.swift */,
 			);
 			path = Apps;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				DCBB2E0229C4B52900D33528 /* Service.swift in Sources */,
 				DCB2CDDE29C09FDB00E1CE5A /* ViewController.swift in Sources */,
 				DCB2CDDA29C09FDB00E1CE5A /* AppDelegate.swift in Sources */,
+				DCFC098E29C8335200CC2082 /* AppRowCell.swift in Sources */,
 				DCB2CDDC29C09FDB00E1CE5A /* SceneDelegate.swift in Sources */,
 				DCC3DAAD29C59405009913E0 /* AppsHorizontalController.swift in Sources */,
 			);

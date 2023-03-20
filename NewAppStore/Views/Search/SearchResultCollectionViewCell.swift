@@ -32,21 +32,26 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         iv.heightAnchor.constraint(equalToConstant: 64).isActive = true
         iv.layer.cornerRadius = 12
         iv.clipsToBounds = true
+        iv.contentMode = .scaleAspectFill
         return iv
     }()
     
     let nameLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 16)
         return label
     }()
     
     let categoryLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 13)
+
         return label
     }()
     
     let ratingLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 13)
         return label
     }()
     
