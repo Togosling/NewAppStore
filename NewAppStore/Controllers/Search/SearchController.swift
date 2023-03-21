@@ -34,7 +34,7 @@ class SearchController: UICollectionViewController, UICollectionViewDelegateFlow
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
-            Service.shared.fetchApps(searchItem: searchText) { result in
+            Service.shared.fetchSearchApps(searchItem: searchText) { result in
                 self.appSearchResults = result
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()

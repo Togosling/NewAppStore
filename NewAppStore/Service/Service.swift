@@ -11,7 +11,7 @@ class Service {
     
     static let shared = Service()
     
-    func fetchApps(searchItem: String, completion: @escaping ([Result]) -> ()) {
+    func fetchSearchApps(searchItem: String, completion: @escaping ([Result]) -> ()) {
         
         let urlString = "https://itunes.apple.com/search?term=\(searchItem)&entity=software"
         guard let url = URL(string: urlString) else {return}
@@ -33,4 +33,28 @@ class Service {
 
         }.resume()
     }
+    
+    func fetchApps(completion: @escaping (AppGroup) -> ()) {
+        
+        let urlString = "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/50/apps.json"
+        guard let url = URL(string: urlString) else {return}
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            if let error = error {
+                print("failed to fetch Itunes Apps", error)
+            }
+            guard let data = data else {return}
+            
+            do {
+                let result = try JSONDecoder().decode(AppGroup.self, from: data)
+                completion(result)
+        
+            } catch {
+                print("failed to decode json", error)
+            }
+
+        }.resume()
+    }
+    
 }

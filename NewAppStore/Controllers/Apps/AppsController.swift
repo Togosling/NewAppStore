@@ -17,6 +17,15 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
         
         collectionView.register(AppsCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(AppHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
+        
+        fetchData()
+    }
+    
+    fileprivate func fetchData() {
+        Service.shared.fetchApps { result in
+            print(result.feed.results)
+        }
+        
     }
     //MARK: HEADER
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
