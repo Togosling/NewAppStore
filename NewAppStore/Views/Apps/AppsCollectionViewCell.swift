@@ -9,7 +9,7 @@ import UIKit
 
 class AppsCollectionViewCell : UICollectionViewCell {
     
-    let titleLabel: UILabel = {
+    var titleLabel: UILabel = {
        let label = UILabel()
         label.text = "App Section"
         label.font = UIFont.boldSystemFont(ofSize: 30)

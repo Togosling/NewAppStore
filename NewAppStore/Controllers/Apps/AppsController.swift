@@ -11,6 +11,7 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
     
     fileprivate let cellId = "id"
     fileprivate let headerId = "headerId"
+    var appGroup: AppGroup?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,10 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
     
     fileprivate func fetchData() {
         Service.shared.fetchApps { result in
-            print(result.feed.results)
+            self.appGroup = result
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
         
     }
@@ -39,12 +43,15 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
     
     //MARK: CELL
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? AppsCollectionViewCell else {return UICollectionViewCell()}
+        cell.titleLabel.text = appGroup?.feed.title
+        cell.horizontalController.appGroup = appGroup
+        cell.horizontalController.collectionView.reloadData()
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
