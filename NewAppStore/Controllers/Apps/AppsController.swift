@@ -12,6 +12,7 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
     fileprivate let cellId = "id"
     fileprivate let headerId = "headerId"
     var appGroups = [AppGroup]()
+    var socialApps = [SocialApp]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
         
         var appGroup1: AppGroup?
         var appGroup2: AppGroup?
+        var socialGroup = [SocialApp]()
 
         dispatchGroup.enter()
         Service.shared.fetchTopFree(completion: {result in
@@ -41,6 +43,12 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
             appGroup2 = result
         }
         
+        dispatchGroup.enter()
+        Service.shared.fetchSocialApp { result in
+            dispatchGroup.leave()
+            socialGroup = result
+        }
+        
         dispatchGroup.notify(queue: .main) {
             if let group = appGroup1 {
                 self.appGroups.append(group)
@@ -48,13 +56,16 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
             if let group = appGroup2 {
                 self.appGroups.append(group)
             }
+            self.socialApps = socialGroup
             self.collectionView.reloadData()
         }
     }
     
     //MARK: HEADER
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as? AppHeader else {return UICollectionReusableView()}
+        header.appHeaderHorizontalController.socialApps = socialApps
+        header.appHeaderHorizontalController.collectionView.reloadData()
         return header
     }
     

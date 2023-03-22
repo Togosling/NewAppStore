@@ -10,6 +10,7 @@ import UIKit
 class AppHeaderHorizontalController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "cellId"
+    var socialApps = [SocialApp]()
 
     
     override func viewDidLoad() {
@@ -23,12 +24,16 @@ class AppHeaderHorizontalController: UICollectionViewController, UICollectionVie
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? AppHeaderCell else {return UICollectionViewCell()}
+        let socialApp = socialApps[indexPath.item]
+        cell.titleLabel.text = socialApp.tagline
+        cell.companyLabel.text = socialApp.name
+        cell.imageView.sd_setImage(with: URL(string:socialApp.imageUrl))
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return socialApps.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -36,7 +41,7 @@ class AppHeaderHorizontalController: UICollectionViewController, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 16, bottom: 0, right: 0)
+        return .init(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     init() {
