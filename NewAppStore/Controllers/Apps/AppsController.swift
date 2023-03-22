@@ -13,12 +13,22 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
     fileprivate let headerId = "headerId"
     var appGroups = [AppGroup]()
     var socialApps = [SocialApp]()
+    let activityIndicator: UIActivityIndicatorView = {
+        let actInd = UIActivityIndicatorView(style: .large)
+        actInd.startAnimating()
+        actInd.hidesWhenStopped = true
+        actInd.color = .black
+        return actInd
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.register(AppsCollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(AppHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
+        
+        view.addSubview(activityIndicator)
+        activityIndicator.fillSuperview()
         
         fetchData()
     }
@@ -50,6 +60,8 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
         }
         
         dispatchGroup.notify(queue: .main) {
+            self.activityIndicator.stopAnimating()
+            
             if let group = appGroup1 {
                 self.appGroups.append(group)
             }
