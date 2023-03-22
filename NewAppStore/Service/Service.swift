@@ -34,9 +34,22 @@ class Service {
         }.resume()
     }
     
-    func fetchApps(completion: @escaping (AppGroup) -> ()) {
+    func fetchTopFree(completion: @escaping (AppGroup) -> ()) {
         
         let urlString = "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/50/apps.json"
+        fetch(urlString: urlString, completion: completion)
+    }
+    
+    func fetchTopPaid(completion: @escaping (AppGroup) -> ()) {
+        
+        let urlString = "https://rss.applemarketingtools.com/api/v2/us/apps/top-paid/50/apps.json"
+        fetch(urlString: urlString, completion: completion)
+    }
+    
+    //MARK: Helper
+    
+    func fetch(urlString: String, completion: @escaping (AppGroup)-> ()) {
+        
         guard let url = URL(string: urlString) else {return}
         
         URLSession.shared.dataTask(with: url) { data, response, error in

@@ -11,7 +11,7 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
     
     fileprivate let cellId = "id"
     fileprivate let headerId = "headerId"
-    var appGroup: AppGroup?
+    var appGroups = [AppGroup]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +23,35 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
     }
     
     fileprivate func fetchData() {
-        Service.shared.fetchApps { result in
-            self.appGroup = result
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
+        
+        let dispatchGroup = DispatchGroup()
+        
+        var appGroup1: AppGroup?
+        var appGroup2: AppGroup?
+
+        dispatchGroup.enter()
+        Service.shared.fetchTopFree(completion: {result in
+            dispatchGroup.leave()
+            appGroup1 = result
+        })
+        
+        dispatchGroup.enter()
+        Service.shared.fetchTopPaid { result in
+            dispatchGroup.leave()
+            appGroup2 = result
         }
         
+        dispatchGroup.notify(queue: .main) {
+            if let group = appGroup1 {
+                self.appGroups.append(group)
+            }
+            if let group = appGroup2 {
+                self.appGroups.append(group)
+            }
+            self.collectionView.reloadData()
+        }
     }
+    
     //MARK: HEADER
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
@@ -44,14 +65,15 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
     //MARK: CELL
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? AppsCollectionViewCell else {return UICollectionViewCell()}
-        cell.titleLabel.text = appGroup?.feed.title
+        let appGroup = appGroups[indexPath.item]
+        cell.titleLabel.text = appGroup.feed.title
         cell.horizontalController.appGroup = appGroup
         cell.horizontalController.collectionView.reloadData()
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return appGroups.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

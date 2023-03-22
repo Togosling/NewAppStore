@@ -16,7 +16,6 @@ class AppRowCell: UICollectionViewCell {
         iv.layer.cornerRadius = 12
         iv.clipsToBounds = true
         iv.contentMode = .scaleAspectFill
-        iv.backgroundColor = .purple
         return iv
     }()
     
