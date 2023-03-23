@@ -35,7 +35,7 @@ class SearchController: UICollectionViewController, UICollectionViewDelegateFlow
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
             Service.shared.fetchSearchApps(searchItem: searchText) { result in
-                self.appSearchResults = result
+                self.appSearchResults = result.results
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
