@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2F4D1F8DC159C288795F74EA /* Pods_NewAppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F4D424A2CF159D3F4657EFC /* Pods_NewAppStore.framework */; };
 		DC22415F29C17B2200A43A22 /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC22415E29C17B2200A43A22 /* SearchResultCollectionViewCell.swift */; };
+		DC324F5629CC04C300C46245 /* SnappingLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC324F5529CC04C300C46245 /* SnappingLayout.swift */; };
+		DC324F5829CC04DF00C46245 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC324F5729CC04DF00C46245 /* HorizontalSnappingController.swift */; };
 		DC48A7CE29C2CA4F006711D3 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48A7CD29C2CA4F006711D3 /* SearchResult.swift */; };
 		DC48A7D029C2D690006711D3 /* UIVIew+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48A7CF29C2D690006711D3 /* UIVIew+layout.swift */; };
 		DC701AD929CAB2F600790FFC /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC701AD829CAB2F600790FFC /* SocialApp.swift */; };
@@ -36,6 +38,8 @@
 		AD899D323E7B4505816C8C4F /* Pods-NewAppStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewAppStore.release.xcconfig"; path = "Target Support Files/Pods-NewAppStore/Pods-NewAppStore.release.xcconfig"; sourceTree = "<group>"; };
 		BDD0DC4B1657D86280CF1BAE /* Pods-NewAppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewAppStore.debug.xcconfig"; path = "Target Support Files/Pods-NewAppStore/Pods-NewAppStore.debug.xcconfig"; sourceTree = "<group>"; };
 		DC22415E29C17B2200A43A22 /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC324F5529CC04C300C46245 /* SnappingLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingLayout.swift; sourceTree = "<group>"; };
+		DC324F5729CC04DF00C46245 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		DC48A7CD29C2CA4F006711D3 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		DC48A7CF29C2D690006711D3 /* UIVIew+layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+layout.swift"; sourceTree = "<group>"; };
 		DC701AD829CAB2F600790FFC /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				DC48A7CF29C2D690006711D3 /* UIVIew+layout.swift */,
+				DC324F5529CC04C300C46245 /* SnappingLayout.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				DCB2CDEF29C0A12600E1CE5A /* BaseTabBarController.swift */,
+				DC324F5729CC04DF00C46245 /* HorizontalSnappingController.swift */,
 				DCC3DAA529C590F3009913E0 /* Apps */,
 				DCC3DAA429C590E8009913E0 /* Search */,
 			);
@@ -339,8 +345,10 @@
 				DCB2CDDA29C09FDB00E1CE5A /* AppDelegate.swift in Sources */,
 				DCFC098E29C8335200CC2082 /* AppRowCell.swift in Sources */,
 				DCB2CDDC29C09FDB00E1CE5A /* SceneDelegate.swift in Sources */,
+				DC324F5629CC04C300C46245 /* SnappingLayout.swift in Sources */,
 				DC701AD929CAB2F600790FFC /* SocialApp.swift in Sources */,
 				DCC3DAAD29C59405009913E0 /* AppsHorizontalController.swift in Sources */,
+				DC324F5829CC04DF00C46245 /* HorizontalSnappingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
