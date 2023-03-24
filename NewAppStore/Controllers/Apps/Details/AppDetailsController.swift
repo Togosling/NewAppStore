@@ -13,7 +13,6 @@ class AppDetailsController: UICollectionViewController, UICollectionViewDelegate
         didSet {
             let urlString = "https://itunes.apple.com/lookup?id=\(appId ?? "")"
             Service.shared.fetchGenericJsonData(urlString: urlString) { (result: SearchResult) in
-//                print(result.results.first?.formattedPrice)
             }
         }
     }
