@@ -92,6 +92,12 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
         cell.titleLabel.text = appGroup.feed.title
         cell.horizontalController.appGroup = appGroup
         cell.horizontalController.collectionView.reloadData()
+        cell.horizontalController.selectHandler = {[weak self]
+            feedResult in
+            let detailsController = AppDetailsController()
+            detailsController.navigationItem.title = feedResult.name
+            self?.navigationController?.pushViewController(detailsController, animated: true)
+        }
         return cell
     }
     
