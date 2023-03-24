@@ -96,6 +96,7 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
             feedResult in
             let detailsController = AppDetailsController()
             detailsController.navigationItem.title = feedResult.name
+            detailsController.appId = feedResult.id
             self?.navigationController?.pushViewController(detailsController, animated: true)
         }
         return cell
