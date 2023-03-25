@@ -9,14 +9,6 @@ import UIKit
 
 class AppDetailsCell: UICollectionViewCell {
     
-    var app: Result! {
-        didSet {
-            nameLabel.text = app.trackName
-            releaseNotesLabel.text = app.releaseNotes
-            imageView.sd_setImage(with: URL(string: app.artworkUrl100))
-            priceButton.setTitle(app.formattedPrice, for: .normal)
-        }
-    }
     let imageView: UIImageView = {
         let iv = UIImageView()
         iv.widthAnchor.constraint(equalToConstant: 140).isActive = true
