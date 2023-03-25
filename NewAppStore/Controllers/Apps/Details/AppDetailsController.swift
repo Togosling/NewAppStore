@@ -9,16 +9,22 @@ import UIKit
 
 class AppDetailsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    var app: Result?
+    let cellId = "cellId"
+    
     var appId: String! {
         didSet {
             let urlString = "https://itunes.apple.com/lookup?id=\(appId ?? "")"
             Service.shared.fetchGenericJsonData(urlString: urlString) { (result: SearchResult) in
+                let app = result.results.first
+                self.app = app
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
         }
     }
-    
-    let cellId = "cellId"
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +35,9 @@ class AppDetailsController: UICollectionViewController, UICollectionViewDelegate
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? AppDetailsCell else {return UICollectionViewCell()}
+        guard let app = app else {return UICollectionViewCell()}
+        cell.app = app
+     
         return cell
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -36,7 +45,14 @@ class AppDetailsController: UICollectionViewController, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: 300)
+        let dummyCell = AppDetailsCell(frame: .init(x: 0, y: 0, width: view.frame.width, height: 1000))
+        guard let app = app else {return .zero}
+        dummyCell.app = app
+        
+        dummyCell.layoutIfNeeded()
+        let estimatedSize = dummyCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
+        
+        return .init(width: view.frame.width, height: estimatedSize.height)
     }
     
     init() {

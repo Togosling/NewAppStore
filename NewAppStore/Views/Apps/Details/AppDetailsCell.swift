@@ -9,19 +9,26 @@ import UIKit
 
 class AppDetailsCell: UICollectionViewCell {
     
+    var app: Result! {
+        didSet {
+            nameLabel.text = app.trackName
+            releaseNotesLabel.text = app.releaseNotes
+            imageView.sd_setImage(with: URL(string: app.artworkUrl100))
+            priceButton.setTitle(app.formattedPrice, for: .normal)
+        }
+    }
     let imageView: UIImageView = {
         let iv = UIImageView()
         iv.widthAnchor.constraint(equalToConstant: 140).isActive = true
         iv.heightAnchor.constraint(equalToConstant: 140).isActive = true
         iv.layer.cornerRadius = 16
         iv.clipsToBounds = true
-        iv.backgroundColor = .purple
+        iv.contentMode = .scaleAspectFill
         return iv
     }()
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "App name"
         label.font = .systemFont(ofSize: 24)
         label.numberOfLines = 2
         return label
@@ -36,7 +43,6 @@ class AppDetailsCell: UICollectionViewCell {
     
     let releaseNotesLabel: UILabel = {
         let label = UILabel()
-        label.text = "Release Notes"
         label.font = .systemFont(ofSize: 16)
         label.numberOfLines = 0
         return label
