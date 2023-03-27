@@ -35,6 +35,7 @@
 		DCD7AD5B29D144990074C1B7 /* ReviewRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7AD5A29D144990074C1B7 /* ReviewRowCell.swift */; };
 		DCD7AD5D29D146010074C1B7 /* HorizontalReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7AD5C29D146010074C1B7 /* HorizontalReviewController.swift */; };
 		DCD7AD5F29D146CC0074C1B7 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7AD5E29D146CC0074C1B7 /* ReviewCell.swift */; };
+		DCD7AD6129D14D7F0074C1B7 /* Reviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD7AD6029D14D7F0074C1B7 /* Reviews.swift */; };
 		DCFC098E29C8335200CC2082 /* AppRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC098D29C8335200CC2082 /* AppRowCell.swift */; };
 		DCFC099029C83F2400CC2082 /* AppHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC098F29C83F2400CC2082 /* AppHeader.swift */; };
 		DCFC099229C83FEE00CC2082 /* AppHeaderHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFC099129C83FEE00CC2082 /* AppHeaderHorizontalController.swift */; };
@@ -74,6 +75,7 @@
 		DCD7AD5A29D144990074C1B7 /* ReviewRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRowCell.swift; sourceTree = "<group>"; };
 		DCD7AD5C29D146010074C1B7 /* HorizontalReviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalReviewController.swift; sourceTree = "<group>"; };
 		DCD7AD5E29D146CC0074C1B7 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		DCD7AD6029D14D7F0074C1B7 /* Reviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviews.swift; sourceTree = "<group>"; };
 		DCFC098D29C8335200CC2082 /* AppRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRowCell.swift; sourceTree = "<group>"; };
 		DCFC098F29C83F2400CC2082 /* AppHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeader.swift; sourceTree = "<group>"; };
 		DCFC099129C83FEE00CC2082 /* AppHeaderHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHeaderHorizontalController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				DC48A7CD29C2CA4F006711D3 /* SearchResult.swift */,
 				DC7BAA6029C95D0E00ED1547 /* AppGroup.swift */,
 				DC701AD829CAB2F600790FFC /* SocialApp.swift */,
+				DCD7AD6029D14D7F0074C1B7 /* Reviews.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				DC324F5629CC04C300C46245 /* SnappingLayout.swift in Sources */,
 				DC701AD929CAB2F600790FFC /* SocialApp.swift in Sources */,
 				DC7DD57129CEB98A00BB9858 /* AppDetailsHorizontalPreviewController.swift in Sources */,
+				DCD7AD6129D14D7F0074C1B7 /* Reviews.swift in Sources */,
 				DCC3DAAD29C59405009913E0 /* AppsHorizontalController.swift in Sources */,
 				DCD7AD5B29D144990074C1B7 /* ReviewRowCell.swift in Sources */,
 				DC324F5829CC04DF00C46245 /* HorizontalSnappingController.swift in Sources */,
