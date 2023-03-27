@@ -14,6 +14,7 @@ class AppDetailsController: UICollectionViewController, UICollectionViewDelegate
     var app: Result?
     let cellId = "cellId"
     let previewCellId = "previewCellId"
+    let reviewCellId = "reviewCellId"
     
     var appId: String! {
         didSet {
@@ -33,6 +34,7 @@ class AppDetailsController: UICollectionViewController, UICollectionViewDelegate
         
         collectionView.register(AppDetailsCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(PreviewCell.self, forCellWithReuseIdentifier: previewCellId)
+        collectionView.register(ReviewRowCell.self, forCellWithReuseIdentifier: reviewCellId)
         
         navigationItem.largeTitleDisplayMode = .never
         
@@ -45,14 +47,17 @@ class AppDetailsController: UICollectionViewController, UICollectionViewDelegate
             cell.imageView.sd_setImage(with: URL(string: app?.artworkUrl100 ?? ""))
             cell.priceButton.setTitle(app?.formattedPrice, for: .normal)
             return cell
-        } else {
+        } else if indexPath.item == 1 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: previewCellId, for: indexPath) as? PreviewCell else {return UICollectionViewCell()}
             cell.horizontalPreviewController.app = app
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewCellId, for: indexPath) as? ReviewRowCell else {return UICollectionViewCell()}
             return cell
         }
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -67,8 +72,10 @@ class AppDetailsController: UICollectionViewController, UICollectionViewDelegate
             let estimatedSize = dummyCell.systemLayoutSizeFitting(.init(width: view.frame.width, height: 1000))
             
             return .init(width: view.frame.width, height: estimatedSize.height)
-        } else {
+        } else if indexPath.item == 1 {
             return .init(width: view.frame.width, height: 500)
+        } else {
+            return .init(width: view.frame.width, height: 280)
         }
     }
     
