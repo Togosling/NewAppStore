@@ -9,7 +9,7 @@ import UIKit
 
 class HorizontalReviewController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "cellId"
+    fileprivate let cellId = "cellId"
     
     var reviews: Review? {
         didSet {

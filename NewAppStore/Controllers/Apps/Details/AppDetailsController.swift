@@ -14,9 +14,9 @@ class AppDetailsController: UICollectionViewController, UICollectionViewDelegate
     var appId: String
     var app: Result?
     var reviews: Review?
-    let cellId = "cellId"
-    let previewCellId = "previewCellId"
-    let reviewCellId = "reviewCellId"
+    fileprivate let cellId = "cellId"
+    fileprivate let previewCellId = "previewCellId"
+    fileprivate let reviewCellId = "reviewCellId"
     
 
     override func viewDidLoad() {

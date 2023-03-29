@@ -18,6 +18,8 @@
 		DC7DD56F29CEB21500BB9858 /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7DD56E29CEB21500BB9858 /* PreviewCell.swift */; };
 		DC7DD57129CEB98A00BB9858 /* AppDetailsHorizontalPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7DD57029CEB98A00BB9858 /* AppDetailsHorizontalPreviewController.swift */; };
 		DC7DD57329CEBAFD00BB9858 /* ScreenShotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7DD57229CEBAFD00BB9858 /* ScreenShotCell.swift */; };
+		DC9C0C1529D3EC6900789FA6 /* TodayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9C0C1429D3EC6900789FA6 /* TodayController.swift */; };
+		DC9C0C1829D3ECCA00789FA6 /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9C0C1729D3ECCA00789FA6 /* TodayCell.swift */; };
 		DCB2CDDA29C09FDB00E1CE5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2CDD929C09FDB00E1CE5A /* AppDelegate.swift */; };
 		DCB2CDDC29C09FDB00E1CE5A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2CDDB29C09FDB00E1CE5A /* SceneDelegate.swift */; };
 		DCB2CDDE29C09FDB00E1CE5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB2CDDD29C09FDB00E1CE5A /* ViewController.swift */; };
@@ -56,6 +58,8 @@
 		DC7DD56E29CEB21500BB9858 /* PreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
 		DC7DD57029CEB98A00BB9858 /* AppDetailsHorizontalPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsHorizontalPreviewController.swift; sourceTree = "<group>"; };
 		DC7DD57229CEBAFD00BB9858 /* ScreenShotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotCell.swift; sourceTree = "<group>"; };
+		DC9C0C1429D3EC6900789FA6 /* TodayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayController.swift; sourceTree = "<group>"; };
+		DC9C0C1729D3ECCA00789FA6 /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
 		DCB2CDD629C09FDB00E1CE5A /* NewAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB2CDD929C09FDB00E1CE5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCB2CDDB29C09FDB00E1CE5A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +118,7 @@
 		DC22415D29C17AED00A43A22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DC9C0C1629D3ECBD00789FA6 /* Today */,
 				DCC3DAAB29C5921C009913E0 /* Apps */,
 				DCC3DAA829C591E0009913E0 /* Search */,
 			);
@@ -138,6 +143,22 @@
 				DCD7AD6029D14D7F0074C1B7 /* Reviews.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DC9C0C1329D3EC5800789FA6 /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				DC9C0C1429D3EC6900789FA6 /* TodayController.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		DC9C0C1629D3ECBD00789FA6 /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				DC9C0C1729D3ECCA00789FA6 /* TodayCell.swift */,
+			);
+			path = Today;
 			sourceTree = "<group>";
 		};
 		DCB2CDCD29C09FDB00E1CE5A = {
@@ -182,6 +203,7 @@
 			children = (
 				DCB2CDEF29C0A12600E1CE5A /* BaseTabBarController.swift */,
 				DC324F5729CC04DF00C46245 /* HorizontalSnappingController.swift */,
+				DC9C0C1329D3EC5800789FA6 /* Today */,
 				DCC3DAA529C590F3009913E0 /* Apps */,
 				DCC3DAA429C590E8009913E0 /* Search */,
 			);
@@ -398,9 +420,11 @@
 				DC701AD929CAB2F600790FFC /* SocialApp.swift in Sources */,
 				DC7DD57129CEB98A00BB9858 /* AppDetailsHorizontalPreviewController.swift in Sources */,
 				DCD7AD6129D14D7F0074C1B7 /* Reviews.swift in Sources */,
+				DC9C0C1829D3ECCA00789FA6 /* TodayCell.swift in Sources */,
 				DCC3DAAD29C59405009913E0 /* AppsHorizontalController.swift in Sources */,
 				DCD7AD5B29D144990074C1B7 /* ReviewRowCell.swift in Sources */,
 				DC324F5829CC04DF00C46245 /* HorizontalSnappingController.swift in Sources */,
+				DC9C0C1529D3EC6900789FA6 /* TodayController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

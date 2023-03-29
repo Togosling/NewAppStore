@@ -9,7 +9,7 @@ import UIKit
 
 class AppsHorizontalController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "cellId"
+    fileprivate let cellId = "cellId"
     
     var appGroup: AppGroup?
     

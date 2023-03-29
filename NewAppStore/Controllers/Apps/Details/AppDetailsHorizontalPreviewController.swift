@@ -9,7 +9,7 @@ import UIKit
 
 class AppDetailsHorizontalPreviewController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
-    let cellId = "cellId"
+    fileprivate let cellId = "cellId"
     
     var app: Result? {
         didSet{

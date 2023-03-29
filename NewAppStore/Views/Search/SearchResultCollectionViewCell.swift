@@ -85,6 +85,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        
         let labelStackView = UIStackView(arrangedSubviews: [nameLabel,categoryLabel,ratingLabel])
         labelStackView.axis = .vertical
         
