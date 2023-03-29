@@ -43,6 +43,13 @@ class SearchController: UICollectionViewController, UICollectionViewDelegateFlow
         })
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let appResult = appSearchResults[indexPath.item]
+        let controller = AppDetailsController(appId: String(appResult.trackId!))
+        controller.navigationItem.title = appResult.trackName
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? SearchResultCollectionViewCell else {return UICollectionViewCell()}
         cell.appResult = appSearchResults[indexPath.item]

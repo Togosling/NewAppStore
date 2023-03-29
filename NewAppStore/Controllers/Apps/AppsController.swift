@@ -94,9 +94,8 @@ class ApssController : UICollectionViewController, UICollectionViewDelegateFlowL
         cell.horizontalController.collectionView.reloadData()
         cell.horizontalController.selectHandler = {[weak self]
             feedResult in
-            let detailsController = AppDetailsController()
+            let detailsController = AppDetailsController(appId: feedResult.id)
             detailsController.navigationItem.title = feedResult.name
-            detailsController.appId = feedResult.id
             self?.navigationController?.pushViewController(detailsController, animated: true)
         }
         return cell
