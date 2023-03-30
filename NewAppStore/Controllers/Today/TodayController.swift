@@ -11,6 +11,7 @@ class TodayController: UICollectionViewController, UICollectionViewDelegateFlowL
     
     fileprivate let cellId = "cellId"
     fileprivate var startingFrame: CGRect?
+    fileprivate var fullScreenController: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,21 +24,26 @@ class TodayController: UICollectionViewController, UICollectionViewDelegateFlowL
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let redView = UIView()
-        redView.backgroundColor = .red
-        view.addSubview(redView)
+        let fullScreenController = TodayAppFullScreenController()
+        guard let fullScreenControllerView = fullScreenController.view else {return}
         
-        redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+        view.addSubview(fullScreenControllerView)
+        
+        addChild(fullScreenController)
+        self.fullScreenController = fullScreenController
+        
+        fullScreenControllerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
         
         guard let cell = collectionView.cellForItem(at: indexPath) else {return}
         guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else {return}
         self.startingFrame = startingFrame
         
-        redView.frame = startingFrame
-        redView.layer.cornerRadius = 16
+        fullScreenControllerView.frame = startingFrame
+        fullScreenControllerView.layer.cornerRadius = 16
         
         UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseOut) {
-            redView.frame = self.view.frame
+            fullScreenControllerView.frame = self.view.frame
+            self.tabBarController?.tabBar.isHidden = true
         }
     }
     
@@ -46,6 +52,8 @@ class TodayController: UICollectionViewController, UICollectionViewDelegateFlowL
             gesture.view?.frame = self.startingFrame ?? .zero
         } completion: { _ in
             gesture.view?.removeFromSuperview()
+            self.tabBarController?.tabBar.isHidden = false
+            self.fullScreenController?.removeFromParent()
         }
 
     }

@@ -13,6 +13,8 @@
 		DC324F5829CC04DF00C46245 /* HorizontalSnappingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC324F5729CC04DF00C46245 /* HorizontalSnappingController.swift */; };
 		DC48A7CE29C2CA4F006711D3 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48A7CD29C2CA4F006711D3 /* SearchResult.swift */; };
 		DC48A7D029C2D690006711D3 /* UIVIew+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48A7CF29C2D690006711D3 /* UIVIew+layout.swift */; };
+		DC4D0B2B29D5428F00EF8E49 /* TodayAppFullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4D0B2A29D5428F00EF8E49 /* TodayAppFullScreenController.swift */; };
+		DC4D0B2D29D5442000EF8E49 /* TodayFullScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4D0B2C29D5442000EF8E49 /* TodayFullScreenCell.swift */; };
 		DC701AD929CAB2F600790FFC /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC701AD829CAB2F600790FFC /* SocialApp.swift */; };
 		DC7BAA6129C95D0E00ED1547 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7BAA6029C95D0E00ED1547 /* AppGroup.swift */; };
 		DC7DD56F29CEB21500BB9858 /* PreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7DD56E29CEB21500BB9858 /* PreviewCell.swift */; };
@@ -53,6 +55,8 @@
 		DC324F5729CC04DF00C46245 /* HorizontalSnappingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSnappingController.swift; sourceTree = "<group>"; };
 		DC48A7CD29C2CA4F006711D3 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		DC48A7CF29C2D690006711D3 /* UIVIew+layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+layout.swift"; sourceTree = "<group>"; };
+		DC4D0B2A29D5428F00EF8E49 /* TodayAppFullScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppFullScreenController.swift; sourceTree = "<group>"; };
+		DC4D0B2C29D5442000EF8E49 /* TodayFullScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFullScreenCell.swift; sourceTree = "<group>"; };
 		DC701AD829CAB2F600790FFC /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
 		DC7BAA6029C95D0E00ED1547 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		DC7DD56E29CEB21500BB9858 /* PreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCell.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				DC9C0C1429D3EC6900789FA6 /* TodayController.swift */,
+				DC4D0B2A29D5428F00EF8E49 /* TodayAppFullScreenController.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				DC9C0C1729D3ECCA00789FA6 /* TodayCell.swift */,
+				DC4D0B2C29D5442000EF8E49 /* TodayFullScreenCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -408,6 +414,7 @@
 				DCFC099429C841BF00CC2082 /* AppHeaderCell.swift in Sources */,
 				DC7BAA6129C95D0E00ED1547 /* AppGroup.swift in Sources */,
 				DCD7AD5F29D146CC0074C1B7 /* ReviewCell.swift in Sources */,
+				DC4D0B2B29D5428F00EF8E49 /* TodayAppFullScreenController.swift in Sources */,
 				DCB6ABB329C1728100B3BF4E /* SearchController.swift in Sources */,
 				DCBB2E0229C4B52900D33528 /* Service.swift in Sources */,
 				DCB2CDDE29C09FDB00E1CE5A /* ViewController.swift in Sources */,
@@ -418,6 +425,7 @@
 				DCD7AD5D29D146010074C1B7 /* HorizontalReviewController.swift in Sources */,
 				DC324F5629CC04C300C46245 /* SnappingLayout.swift in Sources */,
 				DC701AD929CAB2F600790FFC /* SocialApp.swift in Sources */,
+				DC4D0B2D29D5442000EF8E49 /* TodayFullScreenCell.swift in Sources */,
 				DC7DD57129CEB98A00BB9858 /* AppDetailsHorizontalPreviewController.swift in Sources */,
 				DCD7AD6129D14D7F0074C1B7 /* Reviews.swift in Sources */,
 				DC9C0C1829D3ECCA00789FA6 /* TodayCell.swift in Sources */,
