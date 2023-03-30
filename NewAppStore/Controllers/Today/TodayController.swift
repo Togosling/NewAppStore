@@ -10,6 +10,7 @@ import UIKit
 class TodayController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     fileprivate let cellId = "cellId"
+    fileprivate var startingFrame: CGRect?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,32 @@ class TodayController: UICollectionViewController, UICollectionViewDelegateFlowL
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
+        
+        let redView = UIView()
+        redView.backgroundColor = .red
+        view.addSubview(redView)
+        
+        redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
+        
+        guard let cell = collectionView.cellForItem(at: indexPath) else {return}
+        guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else {return}
+        self.startingFrame = startingFrame
+        
+        redView.frame = startingFrame
+        redView.layer.cornerRadius = 16
+        
+        UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseOut) {
+            redView.frame = self.view.frame
+        }
+    }
+    
+    @objc func handleTap(gesture: UITapGestureRecognizer) {
+        UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseOut) {
+            gesture.view?.frame = self.startingFrame ?? .zero
+        } completion: { _ in
+            gesture.view?.removeFromSuperview()
+        }
+
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
