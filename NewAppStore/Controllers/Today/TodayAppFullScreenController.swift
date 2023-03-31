@@ -23,18 +23,17 @@ class TodayAppFullScreenController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = UITableViewCell()
-            let todayCell = TodayCell()
-            cell.addSubview(todayCell)
-            todayCell.centerInSuperview(size: .init(width: 250, height: 250))
-            return cell
+           return AppFullScreenHeaderCell()
         }
         let cell = TodayFullScreenCell()
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 500
+        if indexPath.row == 0 {
+            return 500
+        }
+        return super.tableView(tableView, heightForRowAt: indexPath)
     }
     
     
