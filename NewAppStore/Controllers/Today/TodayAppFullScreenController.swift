@@ -16,6 +16,7 @@ class TodayAppFullScreenController: UITableViewController {
         
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
+        tableView.isUserInteractionEnabled = false
         
     }
     

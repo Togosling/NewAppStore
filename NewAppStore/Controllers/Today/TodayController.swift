@@ -11,20 +11,27 @@ class TodayController: UICollectionViewController, UICollectionViewDelegateFlowL
     
     fileprivate let cellId = "cellId"
     
-    let items = [TodayItem.init(category: "LIFE HACK", title: "Utilizing Your Time", image: UIImage(named: "garden") ?? UIImage(), description: "ll the tools and apps you need to intelligently organize your life the right way.", backgroundColor: .white), TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budjet", image: UIImage(named: "holiday") ?? UIImage(), description: "Find out all you need to know on how to travel without packing everything!", backgroundColor: UIColor(red: 251/255, green: 246/255, blue: 185/255, alpha: 1))]
+    let items = [
+        TodayItem.init(category: "LIFE HACK", title: "Utilizing Your Time", image: UIImage(named: "garden") ?? UIImage(), description: "ll the tools and apps you need to intelligently organize your life the right way.", backgroundColor: .white, cellType: .single),
+        TodayItem.init(category: "THE DAILY LIST", title: "Test-Drive These CarPlay Apps", image: UIImage(named: "garden") ?? UIImage(), description: "", backgroundColor: .white, cellType: .multiple),
+        TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budjet", image: UIImage(named: "holiday") ?? UIImage(), description: "Find out all you need to know on how to travel without packing everything!", backgroundColor: UIColor(red: 251/255, green: 246/255, blue: 185/255, alpha: 1), cellType: .single)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1)
 
-        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayItem.CellType.single.rawValue)
+        collectionView.register(TodayMultipleAppCell.self, forCellWithReuseIdentifier: TodayItem.CellType.multiple.rawValue)
         
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as? TodayCell else {return UICollectionViewCell()}
-        cell.todayItem = items[indexPath.row]
+        let cellType = items[indexPath.item].cellType.rawValue
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType, for: indexPath) as? BaseCell else {return UICollectionViewCell()}
+        cell.todayItem = items[indexPath.item]
+        
         return cell
     }
     
