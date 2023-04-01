@@ -9,6 +9,8 @@ import UIKit
 
 class TodayAppFullScreenController: UITableViewController {
     
+    var todayItem: TodayItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +25,9 @@ class TodayAppFullScreenController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-           return AppFullScreenHeaderCell()
+           let headerCell = AppFullScreenHeaderCell()
+            headerCell.todayCell.todayItem = todayItem
+            return headerCell
         }
         let cell = TodayFullScreenCell()
         return cell
