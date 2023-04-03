@@ -13,6 +13,7 @@ class TodayMultipleAppCell: BaseCell{
         didSet {
             categoryLabel.text = todayItem.category
             titleLabel.text = todayItem.title
+            multipleAppController.results = todayItem.apps
         }
     }
     
