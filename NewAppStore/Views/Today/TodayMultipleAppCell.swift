@@ -30,7 +30,7 @@ class TodayMultipleAppCell: BaseCell{
 
     }()
     
-    let multipleAppController = UIViewController()
+    let multipleAppController = TodayMultipleAppController()
     
     override init(frame: CGRect) {
         super .init(frame: frame)
