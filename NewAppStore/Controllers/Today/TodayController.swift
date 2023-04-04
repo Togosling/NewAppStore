@@ -71,7 +71,26 @@ class TodayController: UICollectionViewController, UICollectionViewDelegateFlowL
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType, for: indexPath) as? BaseCell else {return UICollectionViewCell()}
         cell.todayItem = items[indexPath.item]
         
+        (cell as? TodayMultipleAppCell)?.multipleAppController.collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handlerMuiltipleAppsTap)))
+        
         return cell
+    }
+    @objc func handlerMuiltipleAppsTap(gesture: UITapGestureRecognizer) {
+        let collectionView = gesture.view
+        var superview = collectionView?.superview
+
+        while superview != nil {
+            if let cell = superview as? TodayMultipleAppCell {
+                guard let indexPath = self.collectionView.indexPath(for: cell) else {return}
+                let apps = self.items[indexPath.item].apps
+
+                let fullController = TodayMultipleAppController(mode: .fullScreen)
+                fullController.results = apps
+                present(BackEnabledNAvigationController(rootViewController: fullController), animated: true) // ??
+            }
+
+            superview = superview?.superview
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -95,7 +114,7 @@ class TodayController: UICollectionViewController, UICollectionViewDelegateFlowL
         if items[indexPath.item].cellType == .multiple {
             let fullScreenController = TodayMultipleAppController(mode: .fullScreen)
             fullScreenController.results = items[indexPath.item].apps
-            present(fullScreenController, animated: true)
+            present(BackEnabledNAvigationController(rootViewController: fullScreenController), animated: true)
         }
         
         let fullScreenController = TodayAppFullScreenController()

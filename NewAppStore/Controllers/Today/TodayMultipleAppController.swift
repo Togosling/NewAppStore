@@ -20,6 +20,14 @@ class TodayMultipleAppController: UICollectionViewController, UICollectionViewDe
         }
         
         collectionView.register(MultipleAppInnerCell.self, forCellWithReuseIdentifier: cellId)
+        navigationController?.isNavigationBarHidden = true
+
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        let detailsController = AppDetailsController(appId: results[indexPath.item].id)
+        navigationController?.pushViewController(detailsController, animated: true)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
