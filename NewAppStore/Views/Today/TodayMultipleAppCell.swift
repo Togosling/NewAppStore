@@ -31,7 +31,7 @@ class TodayMultipleAppCell: BaseCell{
 
     }()
     
-    let multipleAppController = TodayMultipleAppController()
+    let multipleAppController = TodayMultipleAppController(mode: .small)
     
     override init(frame: CGRect) {
         super .init(frame: frame)
