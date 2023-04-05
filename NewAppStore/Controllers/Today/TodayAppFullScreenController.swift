@@ -28,6 +28,7 @@ class TodayAppFullScreenController: UITableViewController {
         if indexPath.row == 0 {
            let headerCell = AppFullScreenHeaderCell()
             headerCell.todayCell.todayItem = todayItem
+            headerCell.clipsToBounds = true
             return headerCell
         }
         let cell = TodayFullScreenCell()

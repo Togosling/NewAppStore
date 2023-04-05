@@ -55,7 +55,7 @@ class TodayCell: BaseCell {
         
         layer.cornerRadius = 16
         backgroundColor = .white
-        clipsToBounds = true
+        imageView.clipsToBounds = true
         
         let imageView2 = UIView()
         imageView2.addSubview(imageView)
