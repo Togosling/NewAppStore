@@ -16,6 +16,9 @@
 		DC48A7D029C2D690006711D3 /* UIVIew+layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48A7CF29C2D690006711D3 /* UIVIew+layout.swift */; };
 		DC4D0B2B29D5428F00EF8E49 /* TodayAppFullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4D0B2A29D5428F00EF8E49 /* TodayAppFullScreenController.swift */; };
 		DC4D0B2D29D5442000EF8E49 /* TodayFullScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4D0B2C29D5442000EF8E49 /* TodayFullScreenCell.swift */; };
+		DC50341C29E113E20047269E /* MusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC50341B29E113E10047269E /* MusicController.swift */; };
+		DC50341F29E113FA0047269E /* MusicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC50341E29E113FA0047269E /* MusicCell.swift */; };
+		DC50342129E114120047269E /* MusicFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC50342029E114120047269E /* MusicFooter.swift */; };
 		DC701AD929CAB2F600790FFC /* SocialApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC701AD829CAB2F600790FFC /* SocialApp.swift */; };
 		DC75805929D8751600591383 /* TodayMultipleAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC75805829D8751600591383 /* TodayMultipleAppCell.swift */; };
 		DC75805B29D87A3500591383 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC75805A29D87A3500591383 /* BaseCell.swift */; };
@@ -65,6 +68,9 @@
 		DC48A7CF29C2D690006711D3 /* UIVIew+layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+layout.swift"; sourceTree = "<group>"; };
 		DC4D0B2A29D5428F00EF8E49 /* TodayAppFullScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppFullScreenController.swift; sourceTree = "<group>"; };
 		DC4D0B2C29D5442000EF8E49 /* TodayFullScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFullScreenCell.swift; sourceTree = "<group>"; };
+		DC50341B29E113E10047269E /* MusicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicController.swift; sourceTree = "<group>"; };
+		DC50341E29E113FA0047269E /* MusicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCell.swift; sourceTree = "<group>"; };
+		DC50342029E114120047269E /* MusicFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicFooter.swift; sourceTree = "<group>"; };
 		DC701AD829CAB2F600790FFC /* SocialApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialApp.swift; sourceTree = "<group>"; };
 		DC75805829D8751600591383 /* TodayMultipleAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayMultipleAppCell.swift; sourceTree = "<group>"; };
 		DC75805A29D87A3500591383 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 		DC22415D29C17AED00A43A22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DC50341D29E113EF0047269E /* Music */,
 				DC9C0C1629D3ECBD00789FA6 /* Today */,
 				DCC3DAAB29C5921C009913E0 /* Apps */,
 				DCC3DAA829C591E0009913E0 /* Search */,
@@ -162,6 +169,23 @@
 				DC9FDC4F29D7C152006EE3E8 /* TodayItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DC50341A29E1125C0047269E /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				DC50341B29E113E10047269E /* MusicController.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		DC50341D29E113EF0047269E /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				DC50341E29E113FA0047269E /* MusicCell.swift */,
+				DC50342029E114120047269E /* MusicFooter.swift */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		DC9C0C1329D3EC5800789FA6 /* Today */ = {
@@ -208,11 +232,11 @@
 		DCB2CDD829C09FDB00E1CE5A /* NewAppStore */ = {
 			isa = PBXGroup;
 			children = (
-				DCBB2E0029C4B51C00D33528 /* Service */,
-				DC48A7C929C2C0B4006711D3 /* Helpers */,
 				DC48A7CC29C2CA34006711D3 /* Model */,
 				DC22415D29C17AED00A43A22 /* Views */,
 				DCB6ABB129C171F600B3BF4E /* Controllers */,
+				DCBB2E0029C4B51C00D33528 /* Service */,
+				DC48A7C929C2C0B4006711D3 /* Helpers */,
 				DCB2CDD929C09FDB00E1CE5A /* AppDelegate.swift */,
 				DCB2CDDB29C09FDB00E1CE5A /* SceneDelegate.swift */,
 				DCB2CDDD29C09FDB00E1CE5A /* ViewController.swift */,
@@ -233,6 +257,7 @@
 				DC9C0C1329D3EC5800789FA6 /* Today */,
 				DCC3DAA529C590F3009913E0 /* Apps */,
 				DCC3DAA429C590E8009913E0 /* Search */,
+				DC50341A29E1125C0047269E /* Music */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -424,6 +449,7 @@
 				DCFC099229C83FEE00CC2082 /* AppHeaderHorizontalController.swift in Sources */,
 				DC9FDC5029D7C152006EE3E8 /* TodayItem.swift in Sources */,
 				DC48A7D029C2D690006711D3 /* UIVIew+layout.swift in Sources */,
+				DC50342129E114120047269E /* MusicFooter.swift in Sources */,
 				DCC3DAAA29C591FE009913E0 /* AppsCollectionViewCell.swift in Sources */,
 				DCB2CDF029C0A12600E1CE5A /* BaseTabBarController.swift in Sources */,
 				DC7DD56F29CEB21500BB9858 /* PreviewCell.swift in Sources */,
@@ -431,6 +457,7 @@
 				DCFC099029C83F2400CC2082 /* AppHeader.swift in Sources */,
 				DCC5DA6229CD5C4D00A0E79F /* AppDetailsCell.swift in Sources */,
 				DC7DD57329CEBAFD00BB9858 /* ScreenShotCell.swift in Sources */,
+				DC50341C29E113E20047269E /* MusicController.swift in Sources */,
 				DCC3DAA729C5910E009913E0 /* AppsController.swift in Sources */,
 				DC48A7CE29C2CA4F006711D3 /* SearchResult.swift in Sources */,
 				DCFC099429C841BF00CC2082 /* AppHeaderCell.swift in Sources */,
@@ -443,6 +470,7 @@
 				DC9FDC4E29D738AC006EE3E8 /* AppFullScreenHeaderCell.swift in Sources */,
 				DC75805929D8751600591383 /* TodayMultipleAppCell.swift in Sources */,
 				DCB2CDDE29C09FDB00E1CE5A /* ViewController.swift in Sources */,
+				DC50341F29E113FA0047269E /* MusicCell.swift in Sources */,
 				DCB2CDDA29C09FDB00E1CE5A /* AppDelegate.swift in Sources */,
 				DCFC098E29C8335200CC2082 /* AppRowCell.swift in Sources */,
 				DCC51A2129DBCBF200223FBE /* BackEnabledNavigationController.swift in Sources */,

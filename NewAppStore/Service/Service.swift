@@ -33,6 +33,10 @@ class Service {
         fetchGenericJsonData(urlString: "https://api.letsbuildthatapp.com/appstore/social", completion: completion)
     }
     
+    func fetchSearchApp(urlString: String, completion: @escaping (SearchResult)->()) {
+        fetchGenericJsonData(urlString: urlString, completion: completion)
+    }
+    
     //MARK: Generic
     
     func fetchGenericJsonData<T:Decodable> (urlString: String, completion: @escaping (T) -> ()) {

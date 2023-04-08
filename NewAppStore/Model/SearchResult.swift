@@ -18,7 +18,7 @@ struct Result: Decodable {
     let primaryGenreName: String
     var averageUserRating: Float?
     let artworkUrl100: String
-    let screenshotUrls : [String]
+    let screenshotUrls : [String]?
     let formattedPrice: String?
     var description: String?
     var releaseNotes: String?
